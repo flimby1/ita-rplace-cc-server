@@ -1,4 +1,4 @@
-## Client-Server-Kommunikation
+## Comunicazione Client-Server
 
 - Il client si connette al server tramite web socket
 - All'inizio il client invia la sua piattaforma e versione come json al server
@@ -46,4 +46,4 @@
 }
  ```
 
-- Wenn kein Pixel existiert, wird `{}` zurückgesendet.
+- Se non esiste alcun pixel, viene restituito `{}`
