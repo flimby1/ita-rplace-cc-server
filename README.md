@@ -1,7 +1,7 @@
 ## Client-Server-Kommunikation
 
-- Der Client verbindet sich mit dem Server per Websocket
-- Zu Beginn sendet der client seine Platform und Version als json zum Server:
+- Il client si connette al server tramite web socket
+- All'inizio il client invia la sua piattaforma e versione come json al server
 
 ```json 
 {
@@ -13,8 +13,8 @@
 }
 ```
 
-- Sollte der Server feststellen, dass der Client eine alte Version verwendet, sendet er diesem eine Update Aufforderung
-  zurück:
+- Se il server rileva che il client sta utilizzando una versione precedente, invia al client una richiesta di aggiornamento
+  risposta:
 
 ```json 
 {
@@ -22,7 +22,7 @@
 }
 ```
 
-- Sobald der Client in der Lage ist ein Pixel zu setzen schickt dieser ein `request-pixel` an den Server
+- Non appena il client è in grado di impostare un pixel, invia un `request-pixel` al server
 
 ```json 
 {
@@ -31,7 +31,7 @@
 }
  ```
 
-- Der Server antwortet dann mit dem zu setzenden Pixel als json, e.g.:
+- Il server quindi risponde con il pixel da impostare come json, es:
 
 ```json 
 {
