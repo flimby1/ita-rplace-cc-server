@@ -67,7 +67,6 @@ async def live_endpoint(websocket: WebSocket):
                     if pixel:
                         response = format_response(
                             'place-pixel',
-                            data.get('user', ''),
                             await get_pixel_data(pixel)
                         )
                     else:
@@ -81,11 +80,10 @@ async def live_endpoint(websocket: WebSocket):
                     target_version = versions.get(client_platform, -1)
                     advertised_count = max(0, metadata.get('useraccounts', 1))
 
-                    # wenn der client nix schickt nehmen wir an, dass er in ordnung ist
+                    # se il cliente non invia nulla, assumiamo che sia ok
                     if client_version < target_version:
                         response = format_response(
                             'notify-update',
-                            data.get('user', ''),
                             {
                                 'version': target_version
                             }
