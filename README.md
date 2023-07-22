@@ -27,7 +27,6 @@
 ```json 
 {
   "operation": "request-pixel",
-  "user": "<user-id">"
 }
  ```
 
@@ -42,7 +41,6 @@
     "color": 4,
     "priority": 1
   },
-  "user": "<user-id">"
 }
  ```
 
