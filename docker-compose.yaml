@@ -1,0 +1,27 @@
+version: "3.3"
+services:
+  replace-server:
+    build: .
+    container_name: rplace-server
+    environment:
+#      - PUID=1007
+#      - PGID=1002
+      - TZ=Europe/Paris
+    network_mode: host
+    #    networks:
+    #      - dashboard-net
+    #ports:
+    #  - 3000:3000
+    restart: unless-stopped
+
+
+#networks:
+#  dashboard-net:
+#    name: dashboard-net
+#    driver: bridge
+#    ipam:
+#     driver: default
+#     config:
+#       - subnet: 10.20.2.0/24
+#    driver_opts:
+#      com.docker.network.bridge.name: dashboard-net
