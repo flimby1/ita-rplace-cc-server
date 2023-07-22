@@ -14,7 +14,7 @@ from application.color import get_matching_color, Color, get_color_from_index, h
 from application.target_configuration.target_configuration import TargetConfiguration
 
 BOARD_SIZE_X = 2000
-BOARD_SIZE_Y = 2000
+BOARD_SIZE_Y = 1000
 
 
 async def image_to_string(image: Image):
@@ -107,8 +107,8 @@ class Canvas:
             # https://websocket-client.readthedocs.io/en/latest/core.html#websocket._core.create_connection
 
             async with websockets.connect("wss://gql-realtime-2.reddit.com/query", extra_headers={
-                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0",
-                "Origin": "https://hot-potato.reddit.com"
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/116.0",
+                "Origin": "https://www.reddit.com'"
             }) as ws:
                 await ws.send(
                     json.dumps(
@@ -122,7 +122,7 @@ class Canvas:
                             "variables": {
                                 "input": {
                                     "channel": {
-                                        "teamOwner": "AFD2022",
+                                        "teamOwner": "GARLICBREAD",
                                         "category": "CANVAS",
                                         "tag": str(canvas_id),
                                     }
@@ -169,14 +169,11 @@ class Canvas:
 
     async def __generate_images(self):
         print("image generation started")
-        #correct_image = Image.new(mode="RGBA", size=(2000, 2000),
-        #                              color=(0, 0, 0, 0))
-        wrong_pixel_image = Image.new(mode="RGBA", size=(2000, 2000),
-                                      color=(0, 0, 0, 0))
-        target_pixel_image = Image.new(mode="RGBA", size=(2000, 2000),
-                                       color=(0, 0, 0, 0))
-        for x in range(2000):
-            for y in range(2000):
+        #correct_image = Image.new(mode="RGBA", size=(BOARD_SIZE_X, BOARD_SIZE_Y), color=(0, 0, 0, 0))
+        wrong_pixel_image = Image.new(mode="RGBA", size=(BOARD_SIZE_X, BOARD_SIZE_Y), color=(0, 0, 0, 0))
+        target_pixel_image = Image.new(mode="RGBA", size=(BOARD_SIZE_X, BOARD_SIZE_Y), color=(0, 0, 0, 0))
+        for x in range(BOARD_SIZE_X):
+            for y in range(BOARD_SIZE_Y):
                 """if px := self.target_configuration.pixel_dict.get((x, y)):
                     correct_image.putpixel((x, y),
                                            hex_to_rgba(get_color_from_index(px['color_index']).value["hex"], False))
