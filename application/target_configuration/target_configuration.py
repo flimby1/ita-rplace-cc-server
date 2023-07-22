@@ -61,7 +61,7 @@ class TargetConfiguration:
         if url.startswith("http"):
             async with aiohttp.ClientSession() as session:
                 async with session.get(url) as resp:
-                    json_data = await resp.json()
+                    json_data = await resp.json(content_type=None)
                     if resp.status != 200:
                         print("Error: Could not get config file from " + self.settings.remote_config_url)
                         return
