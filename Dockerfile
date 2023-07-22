@@ -1,10 +1,10 @@
-FROM python:3.11
+FROM python:3.10
 
 WORKDIR /code
 
 COPY ./requirements.txt /code/requirements.txt
-RUN python3.11 -m pip install --no-cache-dir --upgrade pip
-RUN python3.11 -m pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN python3.10 -m pip install --no-cache-dir --upgrade pip
+RUN python3.10 -m pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY ./application /code/application
 COPY ./main.py /code/
